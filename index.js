@@ -4,9 +4,15 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
+let principal = 200000
+let interestRate = 0.05
+let years = 30
+let name = "Coleah"
 
-
-
+console.log(principal)
+console.log(interestRate)
+console.log(years)
+console.log(name)
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -16,8 +22,11 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
+let monthlyInterestRate = interestRate/12
+let periods = years*12
 
-
+console.log(monthlyInterestRate)
+console.log(periods)
 
 // 🏡 Task 2: Harder Math
 /* Create your calculator! Use the formula in the ReadMe to run calculations on your numbers. Save the final value into a variable called monthlyRate.
@@ -25,12 +34,22 @@ Create another variable called `periods` and give it the value of years*12.
 Hint: while these calculations can be done in one line, it might be helpful to create a variable called "numerator" to calculate the numerator, and another called "denominator" to calculate the denominator 
 
 Hint #2: you'll need to use the `math` object for parts of this calculation!
-
+M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]']
+[=][[[]]]
 When your math is correct, monthlyRate will equal 1073.64
 */
 
+let numerator = (principal * (monthlyInterestRate * Math.pow (1 + monthlyInterestRate, periods)))
 
+console.log(numerator)
 
+let denominator = (Math.pow (1 + monthlyInterestRate, periods) - 1)
+
+console.log(denominator)
+
+let monthlyRate = (numerator / denominator).toFixed(2)
+
+console.log(monthlyRate)
 
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
@@ -38,9 +57,12 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+function mortgageCalculator(){
+    let payment = name + ",your monthly rate is $" + monthlyRate;
+    return payment;
+}
 
-
-
+console.log(mortgageCalculator())
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -49,7 +71,14 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+function mortgageCalculator (principal, interestRate, periods){
+    let payment = name + ",your monthly rate is $" + monthlyRate;
+    principal = 5000000
+    return payment;
+    
+}
 
+console.log(mortgageCalculator(500000, 0.04, 25));
 
 
 
